@@ -1,16 +1,255 @@
 {
- "videos":[
-  {
-   "id":"video1",
-   "youtubeId":"dQw4w9WgXcQ",
-   "translations":{
-    "es":{
-     "title":"Pollo fácil",
-     "description":"Receta simple",
-     "ingredients":["pollo","sal"],
-     "steps":["cocinar","servir"]
+  "videos": [
+    {
+      "id": "anita-001",
+      "youtubeId": "dQw4w9WgXcQ",
+      "publishedAt": "2026-03-18",
+      "categoryKey": "comfort-food",
+      "sourceLanguage": "es",
+      "translations": {
+        "es": {
+          "title": "Pollo al horno fácil",
+          "description": "Una receta simple y jugosa para una comida casera relajante.",
+          "category": "Comida casera",
+          "ingredients": [
+            "1 pollo mediano",
+            "2 cucharadas de aceite",
+            "3 dientes de ajo",
+            "sal al gusto",
+            "pimienta al gusto"
+          ],
+          "steps": [
+            "Precalienta el horno a 200°C.",
+            "Mezcla aceite, ajo, sal y pimienta.",
+            "Unta el pollo con la mezcla.",
+            "Hornea hasta que quede dorado y bien cocido.",
+            "Deja reposar unos minutos y sirve."
+          ]
+        },
+        "en": {
+          "title": "Easy baked chicken",
+          "description": "A simple and juicy recipe for a relaxing homemade meal.",
+          "category": "Comfort food",
+          "ingredients": [
+            "1 medium chicken",
+            "2 tablespoons oil",
+            "3 garlic cloves",
+            "salt to taste",
+            "pepper to taste"
+          ],
+          "steps": [
+            "Preheat the oven to 200°C.",
+            "Mix oil, garlic, salt, and pepper.",
+            "Coat the chicken with the mixture.",
+            "Bake until golden and fully cooked.",
+            "Let it rest for a few minutes and serve."
+          ]
+        },
+        "hi": {
+          "title": "आसान बेक्ड चिकन",
+          "description": "घर के आरामदायक खाने के लिए एक आसान और रसदार रेसिपी।",
+          "category": "होम स्टाइल खाना",
+          "ingredients": [
+            "1 मध्यम चिकन",
+            "2 बड़े चम्मच तेल",
+            "3 लहसुन की कलियाँ",
+            "नमक स्वादानुसार",
+            "काली मिर्च स्वादानुसार"
+          ],
+          "steps": [
+            "ओवन को 200°C पर पहले से गरम करें।",
+            "तेल, लहसुन, नमक और काली मिर्च मिलाएँ।",
+            "चिकन पर यह मिश्रण अच्छी तरह लगाएँ।",
+            "सुनहरा और पूरी तरह पकने तक बेक करें।",
+            "कुछ मिनट आराम दें और परोसें।"
+          ]
+        },
+        "de": {
+          "title": "Einfaches Ofenhähnchen",
+          "description": "Ein einfaches und saftiges Rezept für ein entspanntes hausgemachtes Essen.",
+          "category": "Hausmannskost",
+          "ingredients": [
+            "1 mittelgroßes Hähnchen",
+            "2 Esslöffel Öl",
+            "3 Knoblauchzehen",
+            "Salz nach Geschmack",
+            "Pfeffer nach Geschmack"
+          ],
+          "steps": [
+            "Den Ofen auf 200°C vorheizen.",
+            "Öl, Knoblauch, Salz und Pfeffer mischen.",
+            "Das Hähnchen mit der Mischung bestreichen.",
+            "Backen, bis es goldbraun und durchgegart ist.",
+            "Ein paar Minuten ruhen lassen und servieren."
+          ]
+        }
+      }
+    },
+    {
+      "id": "anita-002",
+      "youtubeId": "M7lc1UVf-VE",
+      "publishedAt": "2026-03-11",
+      "categoryKey": "comfort-food",
+      "sourceLanguage": "es",
+      "translations": {
+        "es": {
+          "title": "Arroz con ajo suave",
+          "description": "Acompañamiento fácil, aromático y perfecto para cualquier plato.",
+          "category": "Comida casera",
+          "ingredients": [
+            "1 taza de arroz",
+            "2 tazas de agua",
+            "2 dientes de ajo",
+            "1 cucharada de aceite",
+            "sal"
+          ],
+          "steps": [
+            "Lava el arroz.",
+            "Sofríe el ajo en aceite.",
+            "Agrega el arroz y mezcla.",
+            "Añade agua y sal.",
+            "Cocina hasta que el arroz esté tierno."
+          ]
+        },
+        "en": {
+          "title": "Simple garlic rice",
+          "description": "An easy and aromatic side dish that works with almost anything.",
+          "category": "Comfort food",
+          "ingredients": [
+            "1 cup rice",
+            "2 cups water",
+            "2 garlic cloves",
+            "1 tablespoon oil",
+            "salt"
+          ],
+          "steps": [
+            "Rinse the rice.",
+            "Sauté the garlic in oil.",
+            "Add the rice and stir.",
+            "Pour in water and salt.",
+            "Cook until the rice is tender."
+          ]
+        },
+        "hi": {
+          "title": "सादा लहसुन चावल",
+          "description": "आसान और खुशबूदार साइड डिश जो कई व्यंजनों के साथ अच्छी लगती है।",
+          "category": "होम स्टाइल खाना",
+          "ingredients": [
+            "1 कप चावल",
+            "2 कप पानी",
+            "2 लहसुन की कलियाँ",
+            "1 बड़ा चम्मच तेल",
+            "नमक"
+          ],
+          "steps": [
+            "चावल धो लें।",
+            "तेल में लहसुन भूनें।",
+            "चावल डालकर मिलाएँ।",
+            "पानी और नमक डालें।",
+            "चावल नरम होने तक पकाएँ।"
+          ]
+        },
+        "de": {
+          "title": "Einfacher Knoblauchreis",
+          "description": "Eine einfache und aromatische Beilage, die zu vielen Gerichten passt.",
+          "category": "Hausmannskost",
+          "ingredients": [
+            "1 Tasse Reis",
+            "2 Tassen Wasser",
+            "2 Knoblauchzehen",
+            "1 Esslöffel Öl",
+            "Salz"
+          ],
+          "steps": [
+            "Den Reis waschen.",
+            "Knoblauch im Öl anbraten.",
+            "Reis hinzufügen und umrühren.",
+            "Wasser und Salz dazugeben.",
+            "Kochen, bis der Reis weich ist."
+          ]
+        }
+      }
+    },
+    {
+      "id": "anita-003",
+      "youtubeId": "ysz5S6PUM-U",
+      "publishedAt": "2026-03-04",
+      "categoryKey": "breakfast",
+      "sourceLanguage": "es",
+      "translations": {
+        "es": {
+          "title": "Huevos cremosos de mañana",
+          "description": "Un desayuno sencillo y rápido con textura suave.",
+          "category": "Desayuno",
+          "ingredients": [
+            "3 huevos",
+            "1 cucharada de mantequilla",
+            "sal",
+            "pimienta"
+          ],
+          "steps": [
+            "Bate los huevos.",
+            "Derrite la mantequilla a fuego bajo.",
+            "Agrega los huevos y mueve suavemente.",
+            "Cocina hasta la textura deseada.",
+            "Sirve con sal y pimienta."
+          ]
+        },
+        "en": {
+          "title": "Creamy morning eggs",
+          "description": "A quick and simple breakfast with a soft texture.",
+          "category": "Breakfast",
+          "ingredients": [
+            "3 eggs",
+            "1 tablespoon butter",
+            "salt",
+            "pepper"
+          ],
+          "steps": [
+            "Beat the eggs.",
+            "Melt the butter over low heat.",
+            "Add the eggs and stir gently.",
+            "Cook until you like the texture.",
+            "Serve with salt and pepper."
+          ]
+        },
+        "hi": {
+          "title": "क्रीमी मॉर्निंग एग्स",
+          "description": "नरम टेक्सचर वाला आसान और जल्दी बनने वाला नाश्ता।",
+          "category": "नाश्ता",
+          "ingredients": [
+            "3 अंडे",
+            "1 बड़ा चम्मच मक्खन",
+            "नमक",
+            "काली मिर्च"
+          ],
+          "steps": [
+            "अंडों को फेंट लें।",
+            "धीमी आँच पर मक्खन पिघलाएँ।",
+            "अंडे डालकर धीरे-धीरे चलाएँ।",
+            "मनचाही टेक्सचर तक पकाएँ।",
+            "नमक और काली मिर्च के साथ परोसें।"
+          ]
+        },
+        "de": {
+          "title": "Cremige Morgeneier",
+          "description": "Ein schnelles und einfaches Frühstück mit weicher Textur.",
+          "category": "Frühstück",
+          "ingredients": [
+            "3 Eier",
+            "1 Esslöffel Butter",
+            "Salz",
+            "Pfeffer"
+          ],
+          "steps": [
+            "Die Eier verquirlen.",
+            "Butter bei niedriger Hitze schmelzen.",
+            "Eier hineingeben und sanft rühren.",
+            "Bis zur gewünschten Konsistenz garen.",
+            "Mit Salz und Pfeffer servieren."
+          ]
+        }
+      }
     }
-   }
-  }
- ]
+  ]
 }
