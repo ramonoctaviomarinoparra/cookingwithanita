@@ -1,311 +1,217 @@
-const supportedLangs = ["en", "es", "hi", "de"];
-let currentLang = "en";
+const supportedLangs = ["es", "en", "hi", "de"];
+let currentLang = "es";
 let siteData = null;
-let currentVideoId = null;
+
+const ui = {
+  es: {
+    heroEyebrow: "Cooking with Anita",
+    heroTitle: "Videos relajantes de cocina con receta en cada video",
+    heroBody: "El idioma se detecta automáticamente y puedes cambiarlo cuando quieras.",
+    featuredLabel: "Video destacado",
+    published: "Publicado",
+    category: "Categoría",
+    recipe: "Receta",
+    ingredients: "Ingredientes",
+    steps: "Pasos",
+    adLabel: "Publicidad",
+    adText: "Aquí irá tu bloque de anuncios.",
+    libraryTitle: "Biblioteca",
+    librarySubtitle: "Cada tarjeta carga el video y su receta."
+  },
+  en: {
+    heroEyebrow: "Cooking with Anita",
+    heroTitle: "Relaxing cooking videos with a recipe in every video",
+    heroBody: "The language is detected automatically and you can change it anytime.",
+    featuredLabel: "Featured video",
+    published: "Published",
+    category: "Category",
+    recipe: "Recipe",
+    ingredients: "Ingredients",
+    steps: "Steps",
+    adLabel: "Advertisement",
+    adText: "Your ad block will go here.",
+    libraryTitle: "Library",
+    librarySubtitle: "Each card loads the video and its recipe."
+  },
+  hi: {
+    heroEyebrow: "Cooking with Anita",
+    heroTitle: "हर वीडियो के साथ रेसिपी वाले आरामदायक कुकिंग वीडियो",
+    heroBody: "भाषा अपने आप पहचानी जाती है और आप चाहें तो बदल सकते हैं।",
+    featuredLabel: "फ़ीचर्ड वीडियो",
+    published: "प्रकाशित",
+    category: "श्रेणी",
+    recipe: "रेसिपी",
+    ingredients: "सामग्री",
+    steps: "स्टेप्स",
+    adLabel: "विज्ञापन",
+    adText: "यहाँ आपका विज्ञापन ब्लॉक आएगा।",
+    libraryTitle: "लाइब्रेरी",
+    librarySubtitle: "हर कार्ड वीडियो और उसकी रेसिपी लोड करता है।"
+  },
+  de: {
+    heroEyebrow: "Cooking with Anita",
+    heroTitle: "Entspannte Kochvideos mit Rezept in jedem Video",
+    heroBody: "Die Sprache wird automatisch erkannt und du kannst sie jederzeit ändern.",
+    featuredLabel: "Hauptvideo",
+    published: "Veröffentlicht",
+    category: "Kategorie",
+    recipe: "Rezept",
+    ingredients: "Zutaten",
+    steps: "Schritte",
+    adLabel: "Werbung",
+    adText: "Hier kommt dein Anzeigenblock hin.",
+    libraryTitle: "Bibliothek",
+    librarySubtitle: "Jede Karte lädt das Video und das Rezept."
+  }
+};
 
 function detectLanguage() {
   const saved = localStorage.getItem("cwa-lang");
   if (saved && supportedLangs.includes(saved)) return saved;
 
-  const browserLangs = navigator.languages && navigator.languages.length
+  const langs = navigator.languages && navigator.languages.length
     ? navigator.languages
-    : [navigator.language || "en"];
+    : [navigator.language || "es"];
 
-  for (const lang of browserLangs) {
+  for (const lang of langs) {
     const short = String(lang).toLowerCase().split("-")[0];
     if (supportedLangs.includes(short)) return short;
   }
-
-  return "en";
+  return "es";
 }
 
-function persistLanguage(lang) {
-  localStorage.setItem("cwa-lang", lang);
+function setLang(lang) {
+  currentLang = supportedLangs.includes(lang) ? lang : "es";
+  localStorage.setItem("cwa-lang", currentLang);
+  render();
 }
 
-function getTranslation(video, lang) {
-  return video.translations[lang] || video.translations[video.sourceLanguage] || video.translations.en || Object.values(video.translations)[0];
+function getText(video, lang) {
+  if (video.translations && video.translations[lang]) return video.translations[lang];
+  if (video.translations && video.translations.es) return video.translations.es;
+  return {
+    title: "",
+    description: "",
+    category: "",
+    ingredients: [],
+    steps: []
+  };
 }
 
-function fmtDate(dateString) {
+function formatDate(dateString) {
+  const locale = { es: "es-ES", en: "en-US", hi: "hi-IN", de: "de-DE" }[currentLang] || "es-ES";
   try {
-    const localeMap = { en: "en-US", es: "es-ES", hi: "hi-IN", de: "de-DE" };
-    return new Date(dateString).toLocaleDateString(localeMap[currentLang] || "en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric"
-    });
+    return new Date(dateString).toLocaleDateString(locale, { year: "numeric", month: "long", day: "numeric" });
   } catch {
     return dateString;
   }
 }
 
-function getUiText() {
-  return {
-    en: {
-      heroKicker: "Relaxing cooking channel",
-      heroTitle: "Slow cooking videos with a recipe for every video.",
-      heroBody: "Watch the featured video, open the recipe instantly, and browse your cooking library in a clean Netflix-style layout.",
-      watchNow: "Watch featured video",
-      browse: "Browse videos",
-      featured: "Featured video",
-      ingredients: "Ingredients",
-      steps: "Steps",
-      recipe: "Recipe",
-      ads: "Advertisement",
-      aboutTitle: "About the channel",
-      aboutBody: "Cooking with Anita combines relaxing kitchen visuals, simple homemade meals, and easy recipes that can be read in multiple languages.",
-      nextTitle: "How to add a new video",
-      nextSteps: [
-        "Open content/videos.json",
-        "Copy one video block",
-        "Paste your new YouTube ID, title, ingredients, and steps",
-        "Commit to GitHub and Cloudflare publishes automatically"
-      ],
-      shelvesTitle: "More videos",
-      published: "Published",
-      category: "Category",
-      openRecipe: "Click any card to load its recipe"
-    },
-    es: {
-      heroKicker: "Canal relajante de cocina",
-      heroTitle: "Videos de cocina lenta con receta en cada video.",
-      heroBody: "Mira el video destacado, abre la receta al instante y explora tu biblioteca en una estructura limpia tipo Netflix.",
-      watchNow: "Ver video destacado",
-      browse: "Ver biblioteca",
-      featured: "Video destacado",
-      ingredients: "Ingredientes",
-      steps: "Pasos",
-      recipe: "Receta",
-      ads: "Publicidad",
-      aboutTitle: "Sobre el canal",
-      aboutBody: "Cooking with Anita mezcla cocina relajante, comidas caseras simples y recetas fáciles de leer en varios idiomas.",
-      nextTitle: "Cómo subir un nuevo video",
-      nextSteps: [
-        "Abre content/videos.json",
-        "Copia un bloque de video",
-        "Pega tu nuevo ID de YouTube, título, ingredientes y pasos",
-        "Haz commit en GitHub y Cloudflare publica automáticamente"
-      ],
-      shelvesTitle: "Más videos",
-      published: "Publicado",
-      category: "Categoría",
-      openRecipe: "Haz clic en una tarjeta para cargar su receta"
-    },
-    hi: {
-      heroKicker: "आरामदायक कुकिंग चैनल",
-      heroTitle: "हर वीडियो के साथ पूरी रेसिपी।",
-      heroBody: "फ़ीचर्ड वीडियो देखें, तुरंत रेसिपी खोलें, और अपनी कुकिंग लाइब्रेरी को नेटफ्लिक्स जैसी साफ़ लेआउट में ब्राउज़ करें।",
-      watchNow: "फ़ीचर्ड वीडियो देखें",
-      browse: "वीडियो ब्राउज़ करें",
-      featured: "फ़ीचर्ड वीडियो",
-      ingredients: "सामग्री",
-      steps: "स्टेप्स",
-      recipe: "रेसिपी",
-      ads: "विज्ञापन",
-      aboutTitle: "चैनल के बारे में",
-      aboutBody: "Cooking with Anita आरामदायक किचन वीडियो, आसान घर के खाने और कई भाषाओं में पढ़ी जाने वाली रेसिपी को जोड़ता है।",
-      nextTitle: "नया वीडियो कैसे जोड़ें",
-      nextSteps: [
-        "content/videos.json खोलें",
-        "एक वीडियो ब्लॉक कॉपी करें",
-        "नया YouTube ID, शीर्षक, सामग्री और स्टेप्स पेस्ट करें",
-        "GitHub पर commit करें और Cloudflare अपने आप publish करेगा"
-      ],
-      shelvesTitle: "और वीडियो",
-      published: "प्रकाशित",
-      category: "श्रेणी",
-      openRecipe: "किसी कार्ड पर क्लिक करके उसकी रेसिपी खोलें"
-    },
-    de: {
-      heroKicker: "Entspannter Kochkanal",
-      heroTitle: "Langsame Kochvideos mit Rezept zu jedem Video.",
-      heroBody: "Sieh dir das Hauptvideo an, öffne sofort das Rezept und durchsuche deine Videobibliothek in einem klaren Netflix-Stil.",
-      watchNow: "Hauptvideo ansehen",
-      browse: "Videos durchsuchen",
-      featured: "Hauptvideo",
-      ingredients: "Zutaten",
-      steps: "Schritte",
-      recipe: "Rezept",
-      ads: "Werbung",
-      aboutTitle: "Über den Kanal",
-      aboutBody: "Cooking with Anita verbindet entspannte Küchenvideos, einfache Hausmannskost und Rezepte, die in mehreren Sprachen gelesen werden können.",
-      nextTitle: "So fügst du ein neues Video hinzu",
-      nextSteps: [
-        "Öffne content/videos.json",
-        "Kopiere einen Videoblock",
-        "Füge deine neue YouTube-ID, Titel, Zutaten und Schritte ein",
-        "Commit zu GitHub und Cloudflare veröffentlicht automatisch"
-      ],
-      shelvesTitle: "Weitere Videos",
-      published: "Veröffentlicht",
-      category: "Kategorie",
-      openRecipe: "Klicke auf eine Karte, um das Rezept zu laden"
-    }
-  }[currentLang];
-}
-
-function setActiveLangButtons() {
-  document.querySelectorAll(".lang-btn").forEach(btn => {
-    btn.classList.toggle("active", btn.dataset.lang === currentLang);
-  });
-}
-
-function renderHero(video) {
-  const t = getTranslation(video, currentLang);
-  const ui = getUiText();
-
+function renderHero() {
+  const t = ui[currentLang];
   document.getElementById("hero").innerHTML = `
     <div class="hero-inner">
-      <div class="hero-kicker">${ui.heroKicker}</div>
-      <h1>${ui.heroTitle}</h1>
-      <p>${ui.heroBody}</p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="https://www.youtube.com/watch?v=${video.youtubeId}" target="_blank" rel="noopener noreferrer">${ui.watchNow}</a>
-        <a class="btn-secondary" href="#shelves">${ui.browse}</a>
-      </div>
+      <div class="eyebrow">${t.heroEyebrow}</div>
+      <h1>${t.heroTitle}</h1>
+      <p>${t.heroBody}</p>
     </div>
   `;
 }
 
 function renderFeatured(video) {
-  const t = getTranslation(video, currentLang);
-  const ui = getUiText();
+  const t = ui[currentLang];
+  const tr = getText(video, currentLang);
 
-  document.getElementById("featured-video").innerHTML = `
-    <h2 class="panel-title">${ui.featured}: ${t.title}</h2>
-    <div class="meta-line">${ui.published}: ${fmtDate(video.publishedAt)} · ${ui.category}: ${t.category}</div>
-    <div class="player-wrap">
+  document.getElementById("featured").innerHTML = `
+    <h2 class="section-title">${t.featuredLabel}: ${tr.title}</h2>
+    <div class="meta">${t.published}: ${formatDate(video.publishedAt)} · ${t.category}: ${tr.category}</div>
+    <div class="player">
       <iframe
         src="https://www.youtube.com/embed/${video.youtubeId}"
-        title="${t.title}"
+        title="${tr.title}"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
     </div>
-    <p class="copy">${t.description}</p>
+    <p class="description">${tr.description}</p>
   `;
 }
 
 function renderRecipe(video) {
-  const t = getTranslation(video, currentLang);
-  const ui = getUiText();
+  const t = ui[currentLang];
+  const tr = getText(video, currentLang);
 
-  document.getElementById("recipe-panel").innerHTML = `
-    <h2 class="panel-title">${ui.recipe}: ${t.title}</h2>
-    <div class="recipe-layout">
+  document.getElementById("recipe").innerHTML = `
+    <h2 class="section-title">${t.recipe}</h2>
+    <div class="recipe-grid">
       <div class="subcard">
-        <h3>${ui.ingredients}</h3>
-        <ul class="clean">
-          ${t.ingredients.map(item => `<li>${item}</li>`).join("")}
-        </ul>
+        <h3>${t.ingredients}</h3>
+        <ul>${tr.ingredients.map(item => `<li>${item}</li>`).join("")}</ul>
       </div>
       <div class="subcard">
-        <h3>${ui.steps}</h3>
-        <ol class="clean">
-          ${t.steps.map(item => `<li>${item}</li>`).join("")}
-        </ol>
+        <h3>${t.steps}</h3>
+        <ol>${tr.steps.map(item => `<li>${item}</li>`).join("")}</ol>
       </div>
     </div>
   `;
 }
 
-function renderSidePanels() {
-  const ui = getUiText();
-  document.getElementById("about-panel").innerHTML = `
-    <h3 class="panel-title">${ui.aboutTitle}</h3>
-    <p class="copy">${ui.aboutBody}</p>
-  `;
+function renderLibrary(videos, selectedId) {
+  const t = ui[currentLang];
+  document.getElementById("library-title").textContent = t.libraryTitle;
+  document.getElementById("library-subtitle").textContent = t.librarySubtitle;
+  document.getElementById("ad-label").textContent = t.adLabel;
+  document.getElementById("ad-space").textContent = t.adText;
 
-  document.getElementById("next-panel").innerHTML = `
-    <h3 class="panel-title">${ui.nextTitle}</h3>
-    <div class="side-list">
-      ${ui.nextSteps.map(step => `<div class="side-item">${step}</div>`).join("")}
-    </div>
-  `;
-}
-
-function uniqueCategories(videos) {
-  return [...new Set(videos.map(v => v.categoryKey))];
-}
-
-function humanCategory(video) {
-  const t = getTranslation(video, currentLang);
-  return t.category || video.categoryKey;
-}
-
-function renderShelves(videos) {
-  const ui = getUiText();
-  const container = document.getElementById("shelves");
-  const categories = uniqueCategories(videos);
-
-  container.innerHTML = categories.map(cat => {
-    const list = videos.filter(v => v.categoryKey === cat);
+  const library = document.getElementById("library");
+  library.innerHTML = videos.map(video => {
+    const tr = getText(video, currentLang);
+    const thumb = `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`;
     return `
-      <section class="shelf">
-        <h2 class="shelf-title">${ui.shelvesTitle}: ${humanCategory(list[0])}</h2>
-        <div class="shelf-row">
-          ${list.map(video => {
-            const t = getTranslation(video, currentLang);
-            const thumb = `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`;
-            return `
-              <article class="video-card" data-video-id="${video.id}">
-                <div class="thumb" style="background-image:url('${thumb}')"></div>
-                <div class="video-body">
-                  <h3 class="video-title">${t.title}</h3>
-                  <p class="video-meta">${fmtDate(video.publishedAt)}</p>
-                </div>
-              </article>
-            `;
-          }).join("")}
+      <article class="video-card" data-id="${video.id}">
+        <div class="thumb" style="background-image:url('${thumb}')"></div>
+        <div class="video-card-body">
+          <h3 class="video-card-title">${tr.title}</h3>
+          <p class="video-card-meta">${formatDate(video.publishedAt)}</p>
         </div>
-      </section>
+      </article>
     `;
-  }).join("") || `<p class="empty-note">${ui.openRecipe}</p>`;
+  }).join("");
 
   document.querySelectorAll(".video-card").forEach(card => {
     card.addEventListener("click", () => {
-      currentVideoId = card.dataset.videoId;
-      const chosen = siteData.videos.find(v => v.id === currentVideoId);
-      renderFeatured(chosen);
-      renderRecipe(chosen);
+      const selected = siteData.videos.find(v => v.id === card.dataset.id);
+      if (!selected) return;
+      renderFeatured(selected);
+      renderRecipe(selected);
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   });
+
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.lang === currentLang);
+  });
 }
 
-function renderPage() {
+function render() {
   if (!siteData || !siteData.videos || !siteData.videos.length) return;
-  const video = siteData.videos.find(v => v.id === currentVideoId) || siteData.videos[0];
-  currentVideoId = video.id;
-
-  renderHero(video);
-  renderFeatured(video);
-  renderRecipe(video);
-  renderSidePanels();
-  renderShelves(siteData.videos);
-  setActiveLangButtons();
+  const selected = siteData.videos[0];
+  renderHero();
+  renderFeatured(selected);
+  renderRecipe(selected);
+  renderLibrary(siteData.videos, selected.id);
   document.documentElement.lang = currentLang;
 }
 
-async function loadData() {
-  const response = await fetch("content/videos.json");
-  siteData = await response.json();
-  renderPage();
-}
-
-function setLang(lang) {
-  currentLang = supportedLangs.includes(lang) ? lang : "en";
-  persistLanguage(currentLang);
-  renderPage();
-}
-
-document.addEventListener("DOMContentLoaded", () => {
+async function init() {
   currentLang = detectLanguage();
-
   document.querySelectorAll(".lang-btn").forEach(btn => {
     btn.addEventListener("click", () => setLang(btn.dataset.lang));
   });
 
-  loadData();
-});
+  const response = await fetch("content/videos.json");
+  siteData = await response.json();
+  render();
+}
+
+init();

@@ -1,0 +1,44 @@
+name: Translate recipes from Spanish
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "content/videos-es.json"
+      - "scripts/translate-videos.mjs"
+      - ".github/workflows/translate-recipes.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  translate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Translate from Spanish base file
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: node scripts/translate-videos.mjs
+
+      - name: Commit translated file
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/videos.json
+          git commit -m "chore: update translated recipes"
+          git push
