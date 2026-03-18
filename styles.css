@@ -1,0 +1,8 @@
+body { font-family: Arial; margin:0; background:#111; color:#fff;}
+.header {display:flex; justify-content:space-between; padding:10px;}
+.logo {height:50px;}
+.lang button {margin:5px;}
+#featured iframe {width:100%; height:400px;}
+.video-row {display:flex; overflow-x:auto;}
+.video-card {margin:10px;}
+.ad {background:#222; padding:20px; text-align:center;}

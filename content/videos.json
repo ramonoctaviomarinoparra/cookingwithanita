@@ -1,0 +1,16 @@
+{
+ "videos":[
+  {
+   "id":"video1",
+   "youtubeId":"dQw4w9WgXcQ",
+   "translations":{
+    "es":{
+     "title":"Pollo fácil",
+     "description":"Receta simple",
+     "ingredients":["pollo","sal"],
+     "steps":["cocinar","servir"]
+    }
+   }
+  }
+ ]
+}
