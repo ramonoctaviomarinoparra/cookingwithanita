@@ -1,245 +1,185 @@
 {
   "videos": [
     {
-      "id": "anita-001",
-      "youtubeId": "M7lc1UVf-VE",
+      "id": "anita-002",
+      "youtubeId": "Vb8ApTmlMPQ",
       "publishedAt": "2026-03-18",
       "sourceLanguage": "es",
       "translations": {
         "es": {
-          "title": "Video de prueba con receta en español",
-          "description": "Este es un video de prueba para dejar el sitio limpio y listo para traducción automática.",
-          "category": "Receta de prueba",
+          "title": "Nuestro primer video",
+          "description": "Desayuno y almuerzo completos",
+          "category": "Lunch",
           "ingredients": [
-            "2 huevos",
-            "1 cucharada de mantequilla",
-            "sal al gusto",
-            "pimienta al gusto",
-            "1 rebanada de pan"
+            "huevos, queso, perejil",
+            "queso, arepas precocidas",
+            "verduras, carne",
+            "lulo"
           ],
           "steps": [
-            "Calienta una sartén a fuego bajo.",
-            "Agrega la mantequilla y deja que se derrita.",
-            "Bate los huevos con sal y pimienta.",
-            "Cocina los huevos lentamente hasta que queden suaves.",
-            "Sirve con pan tostado."
+            "Pronto pondremos los pasos"
           ]
         },
         "en": {
-          "title": "Test video with recipe in Spanish",
-          "description": "This is a test video to keep the site clean and ready for automatic translation.",
-          "category": "Test recipe",
+          "title": "Our First Video",
+          "description": "Complete Breakfast and Lunch",
+          "category": "Lunch",
           "ingredients": [
-            "2 eggs",
-            "1 tablespoon of butter",
-            "salt to taste",
-            "pepper to taste",
-            "1 slice of bread"
+            "eggs, cheese, parsley",
+            "cheese, pre-cooked arepas",
+            "vegetables, meat",
+            "lulo"
           ],
           "steps": [
-            "Heat a pan over low heat.",
-            "Add the butter and let it melt.",
-            "Beat the eggs with salt and pepper.",
-            "Cook the eggs slowly until soft.",
-            "Serve with toasted bread."
+            "We will soon provide the steps"
           ]
         },
         "hi": {
-          "title": "स्पेनिश में रेसिपी के साथ परीक्षण वीडियो",
-          "description": "यह एक परीक्षण वीडियो है ताकि साइट साफ़ और स्वचालित अनुवाद के लिए तैयार रहे।",
-          "category": "परीक्षण रेसिपी",
+          "title": "हमारी पहली वीडियो",
+          "description": "पूरा नाश्ता और दोपहर का खाना",
+          "category": "दोपहर का खाना",
           "ingredients": [
-            "2 अंडे",
-            "1 बड़ा चम्मच मक्खन",
-            "स्वादानुसार नमक",
-            "स्वादानुसार काली मिर्च",
-            "1 स्लाइस ब्रेड"
+            "अंडे, पनीर, अजमोद",
+            "पनीर, तैयार अरेपास",
+            "सब्जियां, मांस",
+            "लुलो"
           ],
           "steps": [
-            "एक पैन को धीमी आंच पर गर्म करें।",
-            "मक्खन डालें और इसे पिघलने दें।",
-            "अंडों को नमक और काली मिर्च के साथ फेंटें।",
-            "अंडों को धीरे-धीरे पकाएं जब तक वे मुलायम न हो जाएं।",
-            "टोस्टेड ब्रेड के साथ परोसें।"
+            "जल्द ही हम स्टेप्स प्रदान करेंगे"
           ]
         },
         "de": {
-          "title": "Testvideo mit Rezept auf Spanisch",
-          "description": "Dies ist ein Testvideo, um die Seite sauber und bereit für automatische Übersetzungen zu halten.",
-          "category": "Testrezept",
+          "title": "Unser Erstes Video",
+          "description": "Vollständiges Frühstück und Mittagessen",
+          "category": "Mittagessen",
           "ingredients": [
-            "2 Eier",
-            "1 Esslöffel Butter",
-            "Salz nach Geschmack",
-            "Pfeffer nach Geschmack",
-            "1 Scheibe Brot"
+            "Eier, Käse, Petersilie",
+            "Käse, vorgegarte Arepas",
+            "Gemüse, Fleisch",
+            "Lulo"
           ],
           "steps": [
-            "Erhitze eine Pfanne bei niedriger Hitze.",
-            "Füge die Butter hinzu und lasse sie schmelzen.",
-            "Schlage die Eier mit Salz und Pfeffer.",
-            "Koche die Eier langsam, bis sie weich sind.",
-            "Serviere mit getoastetem Brot."
+            "Die Schritte werden wir bald hinzufügen"
           ]
         },
         "fr": {
-          "title": "Vidéo test avec recette en espagnol",
-          "description": "Ceci est une vidéo test pour garder le site propre et prêt pour la traduction automatique.",
-          "category": "Recette test",
+          "title": "Notre Première Vidéo",
+          "description": "Petit déjeuner et déjeuner complets",
+          "category": "Déjeuner",
           "ingredients": [
-            "2 œufs",
-            "1 cuillère à soupe de beurre",
-            "sel selon le goût",
-            "poivre selon le goût",
-            "1 tranche de pain"
+            "œufs, fromage, persil",
+            "fromage, arepas précuites",
+            "légumes, viande",
+            "lulo"
           ],
           "steps": [
-            "Chauffez une poêle à feu doux.",
-            "Ajoutez le beurre et laissez-le fondre.",
-            "Battez les œufs avec du sel et du poivre.",
-            "Faites cuire les œufs lentement jusqu’à ce qu’ils soient moelleux.",
-            "Servez avec du pain grillé."
+            "Nous fournirons bientôt les étapes"
           ]
         },
         "pt": {
-          "title": "Vídeo de teste com receita em espanhol",
-          "description": "Este é um vídeo de teste para manter o site limpo e pronto para tradução automática.",
-          "category": "Receita de teste",
+          "title": "Nosso Primeiro Vídeo",
+          "description": "Café da manhã e almoço completos",
+          "category": "Almoço",
           "ingredients": [
-            "2 ovos",
-            "1 colher de sopa de manteiga",
-            "sal a gosto",
-            "pimenta a gosto",
-            "1 fatia de pão"
+            "ovos, queijo, salsa",
+            "queijo, arepas pré-cozidas",
+            "vegetais, carne",
+            "lulo"
           ],
           "steps": [
-            "Aqueça uma frigideira em fogo baixo.",
-            "Adicione a manteiga e deixe derreter.",
-            "Bata os ovos com sal e pimenta.",
-            "Cozinhe os ovos lentamente até ficarem macios.",
-            "Sirva com pão torrado."
+            "Em breve forneceremos os passos"
           ]
         }
       }
     },
     {
-      "id": "anita-002",
-      "youtubeId": "M7lc1UVf-VE",
-      "publishedAt": "2026-03-18",
+      "id": "anita-003",
+      "youtubeId": "fdbnH_GFR0Q",
+      "publishedAt": "2026-03-19",
       "sourceLanguage": "es",
       "translations": {
         "es": {
-          "title": "Video de prueba con receta en español",
-          "description": "Este es un video de prueba para dejar el sitio limpio y listo para traducción automática.",
-          "category": "Receta de prueba",
+          "title": "Pastelitos de arroz con carne y pastelitos de pollo",
+          "description": "Receta de pastelitos caseros rellenos de arroz con carne y pollo",
+          "category": "Lunch",
           "ingredients": [
-            "222 huevos",
-            "22 cucharada de mantequilla",
-            "sal al gusto",
-            "pimienta al gusto",
-            "1 rebanada de pan"
+            "tortillas para pasteles (o empanadas)",
+            "carne",
+            "pollo",
+            "arroz"
           ],
           "steps": [
-            "Calienta22 una sartén a fuego bajo.",
-            "Agrega la mantequilla y deja que se derrita.",
-            "Bate los huevos con sal y pimienta.",
-            "Cocina los huevos lentamente hasta que queden suaves.",
-            "Sirve con pan tostado."
+            "Mira el video"
           ]
         },
         "en": {
-          "title": "Test video with recipe in Spanish",
-          "description": "This is a test video to keep the site clean and ready for automatic translation.",
-          "category": "Test recipe",
+          "title": "Rice Meat Patties and Chicken Patties",
+          "description": "Homemade patties filled with rice, meat, and chicken",
+          "category": "Lunch",
           "ingredients": [
-            "222 eggs",
-            "22 tablespoons of butter",
-            "salt to taste",
-            "pepper to taste",
-            "1 slice of bread"
+            "pastry shells (or empanada dough)",
+            "meat",
+            "chicken",
+            "rice"
           ],
           "steps": [
-            "Heat a pan over low heat.",
-            "Add the butter and let it melt.",
-            "Beat the eggs with salt and pepper.",
-            "Cook the eggs slowly until soft.",
-            "Serve with toasted bread."
+            "Watch the video"
           ]
         },
         "hi": {
-          "title": "स्पेनिश में रेसिपी के साथ परीक्षण वीडियो",
-          "description": "यह एक परीक्षण वीडियो है ताकि साइट साफ़ और स्वचालित अनुवाद के लिए तैयार रहे।",
-          "category": "परीक्षण रेसिपी",
+          "title": "चावल और मांस के पेस्ट्री और चिकन के पेस्ट्री",
+          "description": "घर के बने पेस्ट्री जिनमें चावल, मांस, और चिकन भरा हो",
+          "category": "दोपहर का भोजन",
           "ingredients": [
-            "222 अंडे",
-            "22 बड़े चम्मच मक्खन",
-            "स्वादानुसार नमक",
-            "स्वादानुसार काली मिर्च",
-            "1 स्लाइस ब्रेड"
+            "पेस्ट्री के लायक टॉर्टिला (या एम्पनादा का आटा)",
+            "मांस",
+            "चिकन",
+            "चावल"
           ],
           "steps": [
-            "धीमी आंच पर एक तवा गरम करें।",
-            "मक्खन डालें और इसे पिघलने दें।",
-            "अंडों को नमक और काली मिर्च के साथ फेंटें।",
-            "अंडों को धीरे-धीरे पकाएं जब तक वे नरम न हो जाएं।",
-            "टूथ ब्रेड के साथ परोसें।"
+            "वीडियो देखें"
           ]
         },
         "de": {
-          "title": "Testvideo mit Rezept auf Spanisch",
-          "description": "Dies ist ein Testvideo, um die Seite sauber und bereit für automatische Übersetzung zu halten.",
-          "category": "Testrezept",
+          "title": "Reisfleisch-Pastetchen und Hähnchen-Pastetchen",
+          "description": "Hausgemachte Pastetchen gefüllt mit Reis, Fleisch und Hähnchen",
+          "category": "Mittagessen",
           "ingredients": [
-            "222 Eier",
-            "22 Esslöffel Butter",
-            "Salz nach Geschmack",
-            "Pfeffer nach Geschmack",
-            "1 Scheibe Brot"
+            "Pastetenteig (oder Empanada-Teig)",
+            "Fleisch",
+            "Hähnchen",
+            "Reis"
           ],
           "steps": [
-            "Erhitze eine Pfanne bei niedriger Hitze.",
-            "Füge die Butter hinzu und lasse sie schmelzen.",
-            "Verquirle die Eier mit Salz und Pfeffer.",
-            "Koche die Eier langsam, bis sie weich sind.",
-            "Serviere mit geröstetem Brot."
+            "Sehen Sie sich das Video an"
           ]
         },
         "fr": {
-          "title": "Vidéo test avec recette en espagnol",
-          "description": "Ceci est une vidéo test pour garder le site propre et prêt pour la traduction automatique.",
-          "category": "Recette test",
+          "title": "Petits pâtés de riz à la viande et pâtés de poulet",
+          "description": "Recette de pâtés maison garnis de riz, viande et poulet",
+          "category": "Déjeuner",
           "ingredients": [
-            "222 œufs",
-            "22 cuillères à soupe de beurre",
-            "sel selon le goût",
-            "poivre selon le goût",
-            "1 tranche de pain"
+            "pâtes à pâtés (ou pâte à empanadas)",
+            "viande",
+            "poulet",
+            "riz"
           ],
           "steps": [
-            "Faites chauffer une poêle à feu doux.",
-            "Ajoutez le beurre et laissez-le fondre.",
-            "Battez les œufs avec du sel et du poivre.",
-            "Faites cuire les œufs lentement jusqu'à ce qu'ils soient moelleux.",
-            "Servez avec du pain grillé."
+            "Regardez la vidéo"
           ]
         },
         "pt": {
-          "title": "Vídeo de teste com receita em espanhol",
-          "description": "Este é um vídeo de teste para manter o site limpo e pronto para tradução automática.",
-          "category": "Receita de teste",
+          "title": "Pastéis de arroz com carne e pastéis de frango",
+          "description": "Receita de pastéis caseiros recheados com arroz, carne e frango",
+          "category": "Almoço",
           "ingredients": [
-            "222 ovos",
-            "22 colheres de sopa de manteiga",
-            "sal a gosto",
-            "pimenta a gosto",
-            "1 fatia de pão"
+            "tortilhas para pastéis (ou massa para empanadas)",
+            "carne",
+            "frango",
+            "arroz"
           ],
           "steps": [
-            "Aqueça uma frigideira em fogo baixo.",
-            "Adicione a manteiga e deixe derreter.",
-            "Bata os ovos com sal e pimenta.",
-            "Cozinhe os ovos lentamente até ficarem macios.",
-            "Sirva com pão torrado."
+            "Assista ao vídeo"
           ]
         }
       }
