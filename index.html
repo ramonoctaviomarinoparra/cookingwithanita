@@ -16,28 +16,57 @@
         <button class="lang-btn" data-lang="en" type="button">🇺🇸 EN</button>
         <button class="lang-btn" data-lang="hi" type="button">🇮🇳 HI</button>
         <button class="lang-btn" data-lang="de" type="button">🇩🇪 DE</button>
+        <button class="lang-btn" data-lang="fr" type="button">🇫🇷 FR</button>
+        <button class="lang-btn" data-lang="pt" type="button">🇧🇷 PT</button>
       </div>
     </header>
 
     <section class="hero" id="hero"></section>
 
-    <section class="layout">
-      <div class="main-col">
-        <section class="card featured" id="featured"></section>
-        <section class="card recipe" id="recipe"></section>
-        <section class="card ad-box">
-          <div class="ad-label" id="ad-label">Publicidad</div>
-          <div class="ad-space" id="ad-space">Aquí irá tu bloque de anuncios.</div>
-        </section>
-      </div>
-
-      <aside class="side-col">
-        <section class="card library">
-          <div class="library-head">
-            <h2 class="section-title" id="library-title">Biblioteca</h2>
-            <p class="meta" id="library-subtitle">Cada tarjeta carga el video y su receta.</p>
+    <section class="page-grid">
+      <aside class="rail rail-left">
+        <section class="card ad-box side-ad">
+          <div class="ad-label" id="side-ad-left-label">Publicidad</div>
+          <div class="ad-space ad-space-tall" id="side-ad-left">
+            Espacio publicitario lateral
           </div>
-          <div class="shelf-row" id="library"></div>
+        </section>
+      </aside>
+
+      <main class="content-col">
+        <section class="layout">
+          <div class="main-col">
+            <section class="card featured" id="featured"></section>
+            <section class="card recipe" id="recipe"></section>
+          </div>
+
+          <aside class="side-col">
+            <section class="card library">
+              <div class="library-head">
+                <h2 class="section-title" id="library-title">Biblioteca</h2>
+                <p class="meta" id="library-subtitle">Cada tarjeta carga el video y su receta.</p>
+              </div>
+              <div class="shelf-row" id="library"></div>
+            </section>
+          </aside>
+        </section>
+
+        <section class="bottom-ads">
+          <section class="card ad-box">
+            <div class="ad-label" id="bottom-ad-label">Publicidad</div>
+            <div class="ad-space ad-space-wide" id="bottom-ad">
+              Espacio publicitario inferior
+            </div>
+          </section>
+        </section>
+      </main>
+
+      <aside class="rail rail-right">
+        <section class="card ad-box side-ad">
+          <div class="ad-label" id="side-ad-right-label">Publicidad</div>
+          <div class="ad-space ad-space-tall" id="side-ad-right">
+            Espacio publicitario lateral
+          </div>
         </section>
       </aside>
     </section>

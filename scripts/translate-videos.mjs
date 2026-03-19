@@ -10,7 +10,7 @@ if (!OPENAI_API_KEY) {
 
 const SOURCE_FILE = "content/videos-es.json";
 const TARGET_FILE = "content/videos.json";
-const TARGET_LANGS = ["en", "hi", "de"];
+const TARGET_LANGS = ["en", "hi", "de", "fr", "pt"];
 
 function buildPrompt(esTranslation) {
   return `
@@ -20,6 +20,8 @@ Translate this Spanish recipe content into:
 - English (en)
 - Hindi in natural Devanagari script (hi)
 - German (de)
+- French (fr)
+- Portuguese for Brazil (pt)
 
 Rules:
 - Return valid JSON only.
@@ -48,6 +50,20 @@ Return exactly this shape:
     "steps": []
   },
   "de": {
+    "title": "",
+    "description": "",
+    "category": "",
+    "ingredients": [],
+    "steps": []
+  },
+  "fr": {
+    "title": "",
+    "description": "",
+    "category": "",
+    "ingredients": [],
+    "steps": []
+  },
+  "pt": {
     "title": "",
     "description": "",
     "category": "",
@@ -97,13 +113,13 @@ async function callOpenAI(esTranslation) {
     method: "POST",
     headers: {
       Authorization: `Bearer ${OPENAI_API_KEY}`,
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
       model: "gpt-4.1-mini",
       store: false,
-      input: buildPrompt(esTranslation),
-    }),
+      input: buildPrompt(esTranslation)
+    })
   });
 
   if (!response.ok) {
@@ -138,8 +154,8 @@ function isValidTranslationBlock(value) {
     typeof value.category === "string" &&
     Array.isArray(value.ingredients) &&
     Array.isArray(value.steps) &&
-    value.ingredients.every((item) => typeof item === "string") &&
-    value.steps.every((item) => typeof item === "string")
+    value.ingredients.every(item => typeof item === "string") &&
+    value.steps.every(item => typeof item === "string")
   );
 }
 
@@ -160,7 +176,7 @@ async function run() {
       throw new Error(`Video ${video.id || "(unknown id)"} is missing translations.es`);
     }
 
-    const missingLangs = TARGET_LANGS.filter((lang) => !video.translations[lang]);
+    const missingLangs = TARGET_LANGS.filter(lang => !video.translations[lang]);
 
     if (missingLangs.length === 0) {
       console.log(`Skipping ${video.id}: all target translations already exist.`);
@@ -186,7 +202,7 @@ async function run() {
   console.log(`Generated file: ${TARGET_FILE}`);
 }
 
-run().catch((error) => {
+run().catch(error => {
   console.error(error);
   process.exit(1);
 });
