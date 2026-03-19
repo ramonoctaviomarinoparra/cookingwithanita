@@ -1,58 +1,49 @@
 {
   "videos": [
     {
-      "id": "anita-001",
-      "youtubeId": "M7lc1UVf-VE",
+      "id": "anita-002",
+      "youtubeId": "Vb8ApTmlMPQ",
       "publishedAt": "2026-03-18",
       "sourceLanguage": "es",
       "translations": {
         "es": {
-          "title": "Video de prueba con receta en español",
-          "description": "Este es un video de prueba para dejar el sitio limpio y listo para traducción automática.",
-          "category": "Receta de prueba",
+          "title": "Nuestro primer video",
+          "description": "Desayuno y almuerzo completos",
+          "category": "Lunch",
           "ingredients": [
-            "2 huevos",
-            "1 cucharada de mantequilla",
-            "sal al gusto",
-            "pimienta al gusto",
-            "1 rebanada de pan"
+            "huevos, queso, perejil",
+            "queso, arepas precocidas",
+            "verduras, carne",
+            "lulo"
           ],
           "steps": [
-            "Calienta una sartén a fuego bajo.",
-            "Agrega la mantequilla y deja que se derrita.",
-            "Bate los huevos con sal y pimienta.",
-            "Cocina los huevos lentamente hasta que queden suaves.",
-            "Sirve con pan tostado."
+            "Pronto pondremos los pasos"
           ]
         }
       }
     },
     {
-      "id": "anita-002",
-      "youtubeId": "M7lc1UVf-VE",
-      "publishedAt": "2026-03-18",
-      "sourceLanguage": "es",
-      "translations": {
-        "es": {
-          "title": "Video de prueba con receta en español",
-          "description": "Este es un video de prueba para dejar el sitio limpio y listo para traducción automática.",
-          "category": "Receta de prueba",
-          "ingredients": [
-            "222 huevos",
-            "22 cucharada de mantequilla",
-            "sal al gusto",
-            "pimienta al gusto",
-            "1 rebanada de pan"
-          ],
-          "steps": [
-            "Calienta22 una sartén a fuego bajo.",
-            "Agrega la mantequilla y deja que se derrita.",
-            "Bate los huevos con sal y pimienta.",
-            "Cocina los huevos lentamente hasta que queden suaves.",
-            "Sirve con pan tostado."
-          ]
-        }
-      }
+  "id": "anita-003",
+  "youtubeId": "fdbnH_GFR0Q",
+  "publishedAt": "2026-03-19",
+  "sourceLanguage": "es",
+  "translations": {
+    "es": {
+      "title": "Pastelitos de arroz con carne y pastelitos de pollo",
+      "description": "Receta de pastelitos caseros rellenos de arroz con carne y pollo",
+      "category": "Lunch",
+      "ingredients": [
+        "tortillas para pasteles (o empanadas)",
+        "carne",
+        "pollo",
+        "arroz"
+      ],
+      "steps": [
+        "Mira el video"
+      ]
     }
+  }
+}
+
   ]
 }
