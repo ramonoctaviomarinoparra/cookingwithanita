@@ -26,6 +26,33 @@
           ]
         }
       }
+    },
+        {
+      "id": "anita-002",
+      "youtubeId": "M7lc1UVf-VE",
+      "publishedAt": "2026-03-18",
+      "sourceLanguage": "es",
+      "translations": {
+        "es": {
+          "title": "Video de prueba con receta en español numero 2",
+          "description": "Este es un video de prueba para dejar el sitio limpio y listo para traducción automática.",
+          "category": "Receta de prueba",
+          "ingredients": [
+            "299 huevos",
+            "1 cucharada de mantequilla",
+            "sal al gusto",
+            "pimienta al gusto",
+            "1 rebanada de pan"
+          ],
+          "steps": [
+            "Calienta una sartén a fuego bajo.",
+            "Agrega la mantequilla y deja que se derrita.",
+            "Bate los huevos con sal y pimienta.",
+            "Cocina los huevos lentamente hasta que queden suaves.",
+            "Sirve con pan tostado."
+          ]
+        }
+      }
     }
   ]
 }
