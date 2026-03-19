@@ -61,6 +61,37 @@ ${JSON.stringify(esTranslation, null, 2)}
 `.trim();
 }
 
+function extractOutputText(data) {
+  if (typeof data?.output_text === "string" && data.output_text.trim()) {
+    return data.output_text.trim();
+  }
+
+  if (!Array.isArray(data?.output)) {
+    return "";
+  }
+
+  const texts = [];
+
+  for (const item of data.output) {
+    if (!Array.isArray(item?.content)) continue;
+
+    for (const part of item.content) {
+      if (typeof part?.text === "string" && part.text.trim()) {
+        texts.push(part.text);
+      }
+    }
+  }
+
+  return texts.join("\n").trim();
+}
+
+function stripCodeFences(text) {
+  return text
+    .replace(/^```(?:json)?\s*/i, "")
+    .replace(/\s*```$/, "")
+    .trim();
+}
+
 async function callOpenAI(esTranslation) {
   const response = await fetch("https://api.openai.com/v1/responses", {
     method: "POST",
@@ -69,7 +100,7 @@ async function callOpenAI(esTranslation) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "gpt-5.4-mini",
+      model: "gpt-4.1-mini",
       store: false,
       input: buildPrompt(esTranslation),
     }),
@@ -81,15 +112,17 @@ async function callOpenAI(esTranslation) {
   }
 
   const data = await response.json();
-  const outputText = (data.output_text || "").trim();
+  const outputText = stripCodeFences(extractOutputText(data));
 
   if (!outputText) {
-    throw new Error("OpenAI API returned empty output_text.");
+    throw new Error(
+      `OpenAI API returned no usable text. Full response:\n${JSON.stringify(data, null, 2)}`
+    );
   }
 
   try {
     return JSON.parse(outputText);
-  } catch (error) {
+  } catch {
     throw new Error(
       `Could not parse JSON returned by OpenAI. Raw output:\n${outputText}`
     );
