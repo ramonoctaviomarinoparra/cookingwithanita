@@ -26,12 +26,12 @@
           ]
         },
         "en": {
-          "title": "Test Video with Recipe in Spanish",
+          "title": "Test video with recipe in Spanish",
           "description": "This is a test video to keep the site clean and ready for automatic translation.",
-          "category": "Test Recipe",
+          "category": "Test recipe",
           "ingredients": [
             "2 eggs",
-            "1 tablespoon butter",
+            "1 tablespoon of butter",
             "salt to taste",
             "pepper to taste",
             "1 slice of bread"
@@ -45,22 +45,22 @@
           ]
         },
         "hi": {
-          "title": "स्पेनिश में नुस्खा के साथ परीक्षण वीडियो",
-          "description": "यह एक परीक्षण वीडियो है ताकि साइट साफ-सुथरी रहे और स्वचालित अनुवाद के लिए तैयार हो।",
-          "category": "परीक्षण नुस्खा",
+          "title": "स्पेनिश में रेसिपी के साथ परीक्षण वीडियो",
+          "description": "यह एक परीक्षण वीडियो है ताकि साइट साफ़ और स्वचालित अनुवाद के लिए तैयार रहे।",
+          "category": "परीक्षण रेसिपी",
           "ingredients": [
             "2 अंडे",
             "1 बड़ा चम्मच मक्खन",
-            "स्वाद अनुसार नमक",
-            "स्वाद अनुसार काली मिर्च",
+            "स्वादानुसार नमक",
+            "स्वादानुसार काली मिर्च",
             "1 स्लाइस ब्रेड"
           ],
           "steps": [
-            "एक पैन को धीमी आंच पर गरम करें।",
-            "मक्खन डालें और पिघलने दें।",
+            "एक पैन को धीमी आंच पर गर्म करें।",
+            "मक्खन डालें और इसे पिघलने दें।",
             "अंडों को नमक और काली मिर्च के साथ फेंटें।",
-            "अंडों को धीरे-धीरे पकाएँ जब तक वे नरम न हो जाएं।",
-            "तोस्टेड ब्रेड के साथ परोसें।"
+            "अंडों को धीरे-धीरे पकाएं जब तक वे मुलायम न हो जाएं।",
+            "टोस्टेड ब्रेड के साथ परोसें।"
           ]
         },
         "de": {
@@ -75,30 +75,30 @@
             "1 Scheibe Brot"
           ],
           "steps": [
-            "Erhitzen Sie eine Pfanne bei niedriger Hitze.",
-            "Fügen Sie die Butter hinzu und lassen Sie sie schmelzen.",
-            "Schlagen Sie die Eier mit Salz und Pfeffer.",
-            "Kochen Sie die Eier langsam, bis sie weich sind.",
-            "Servieren Sie mit geröstetem Brot."
+            "Erhitze eine Pfanne bei niedriger Hitze.",
+            "Füge die Butter hinzu und lasse sie schmelzen.",
+            "Schlage die Eier mit Salz und Pfeffer.",
+            "Koche die Eier langsam, bis sie weich sind.",
+            "Serviere mit getoastetem Brot."
           ]
         },
         "fr": {
           "title": "Vidéo test avec recette en espagnol",
-          "description": "Ceci est une vidéo de test pour garder le site propre et prêt pour la traduction automatique.",
+          "description": "Ceci est une vidéo test pour garder le site propre et prêt pour la traduction automatique.",
           "category": "Recette test",
           "ingredients": [
             "2 œufs",
             "1 cuillère à soupe de beurre",
-            "sel à goût",
-            "poivre à goût",
+            "sel selon le goût",
+            "poivre selon le goût",
             "1 tranche de pain"
           ],
           "steps": [
-            "Chauffer une poêle à feu doux.",
-            "Ajouter le beurre et laisser fondre.",
-            "Battre les œufs avec le sel et le poivre.",
-            "Cuire les œufs lentement jusqu'à ce qu'ils soient tendres.",
-            "Servir avec du pain grillé."
+            "Chauffez une poêle à feu doux.",
+            "Ajoutez le beurre et laissez-le fondre.",
+            "Battez les œufs avec du sel et du poivre.",
+            "Faites cuire les œufs lentement jusqu’à ce qu’ils soient moelleux.",
+            "Servez avec du pain grillé."
           ]
         },
         "pt": {
@@ -108,6 +108,128 @@
           "ingredients": [
             "2 ovos",
             "1 colher de sopa de manteiga",
+            "sal a gosto",
+            "pimenta a gosto",
+            "1 fatia de pão"
+          ],
+          "steps": [
+            "Aqueça uma frigideira em fogo baixo.",
+            "Adicione a manteiga e deixe derreter.",
+            "Bata os ovos com sal e pimenta.",
+            "Cozinhe os ovos lentamente até ficarem macios.",
+            "Sirva com pão torrado."
+          ]
+        }
+      }
+    },
+    {
+      "id": "anita-002",
+      "youtubeId": "M7lc1UVf-VE",
+      "publishedAt": "2026-03-18",
+      "sourceLanguage": "es",
+      "translations": {
+        "es": {
+          "title": "Video de prueba con receta en español",
+          "description": "Este es un video de prueba para dejar el sitio limpio y listo para traducción automática.",
+          "category": "Receta de prueba",
+          "ingredients": [
+            "222 huevos",
+            "22 cucharada de mantequilla",
+            "sal al gusto",
+            "pimienta al gusto",
+            "1 rebanada de pan"
+          ],
+          "steps": [
+            "Calienta22 una sartén a fuego bajo.",
+            "Agrega la mantequilla y deja que se derrita.",
+            "Bate los huevos con sal y pimienta.",
+            "Cocina los huevos lentamente hasta que queden suaves.",
+            "Sirve con pan tostado."
+          ]
+        },
+        "en": {
+          "title": "Test video with recipe in Spanish",
+          "description": "This is a test video to keep the site clean and ready for automatic translation.",
+          "category": "Test recipe",
+          "ingredients": [
+            "222 eggs",
+            "22 tablespoons of butter",
+            "salt to taste",
+            "pepper to taste",
+            "1 slice of bread"
+          ],
+          "steps": [
+            "Heat a pan over low heat.",
+            "Add the butter and let it melt.",
+            "Beat the eggs with salt and pepper.",
+            "Cook the eggs slowly until soft.",
+            "Serve with toasted bread."
+          ]
+        },
+        "hi": {
+          "title": "स्पेनिश में रेसिपी के साथ परीक्षण वीडियो",
+          "description": "यह एक परीक्षण वीडियो है ताकि साइट साफ़ और स्वचालित अनुवाद के लिए तैयार रहे।",
+          "category": "परीक्षण रेसिपी",
+          "ingredients": [
+            "222 अंडे",
+            "22 बड़े चम्मच मक्खन",
+            "स्वादानुसार नमक",
+            "स्वादानुसार काली मिर्च",
+            "1 स्लाइस ब्रेड"
+          ],
+          "steps": [
+            "धीमी आंच पर एक तवा गरम करें।",
+            "मक्खन डालें और इसे पिघलने दें।",
+            "अंडों को नमक और काली मिर्च के साथ फेंटें।",
+            "अंडों को धीरे-धीरे पकाएं जब तक वे नरम न हो जाएं।",
+            "टूथ ब्रेड के साथ परोसें।"
+          ]
+        },
+        "de": {
+          "title": "Testvideo mit Rezept auf Spanisch",
+          "description": "Dies ist ein Testvideo, um die Seite sauber und bereit für automatische Übersetzung zu halten.",
+          "category": "Testrezept",
+          "ingredients": [
+            "222 Eier",
+            "22 Esslöffel Butter",
+            "Salz nach Geschmack",
+            "Pfeffer nach Geschmack",
+            "1 Scheibe Brot"
+          ],
+          "steps": [
+            "Erhitze eine Pfanne bei niedriger Hitze.",
+            "Füge die Butter hinzu und lasse sie schmelzen.",
+            "Verquirle die Eier mit Salz und Pfeffer.",
+            "Koche die Eier langsam, bis sie weich sind.",
+            "Serviere mit geröstetem Brot."
+          ]
+        },
+        "fr": {
+          "title": "Vidéo test avec recette en espagnol",
+          "description": "Ceci est une vidéo test pour garder le site propre et prêt pour la traduction automatique.",
+          "category": "Recette test",
+          "ingredients": [
+            "222 œufs",
+            "22 cuillères à soupe de beurre",
+            "sel selon le goût",
+            "poivre selon le goût",
+            "1 tranche de pain"
+          ],
+          "steps": [
+            "Faites chauffer une poêle à feu doux.",
+            "Ajoutez le beurre et laissez-le fondre.",
+            "Battez les œufs avec du sel et du poivre.",
+            "Faites cuire les œufs lentement jusqu'à ce qu'ils soient moelleux.",
+            "Servez avec du pain grillé."
+          ]
+        },
+        "pt": {
+          "title": "Vídeo de teste com receita em espanhol",
+          "description": "Este é um vídeo de teste para manter o site limpo e pronto para tradução automática.",
+          "category": "Receita de teste",
+          "ingredients": [
+            "222 ovos",
+            "22 colheres de sopa de manteiga",
             "sal a gosto",
             "pimenta a gosto",
             "1 fatia de pão"
