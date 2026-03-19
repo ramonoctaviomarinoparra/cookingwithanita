@@ -1,115 +1,86 @@
 import fs from "node:fs/promises";
+import path from "node:path";
+import process from "node:process";
+import OpenAI from "openai";
 
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-if (!OPENAI_API_KEY) {
-  console.error("Falta OPENAI_API_KEY en GitHub Secrets.");
-  process.exit(1);
-}
+const client = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
-const SOURCE_FILE = "content/videos-es.json";
-const TARGET_FILE = "content/videos.json";
-const TARGET_LANGS = ["en", "hi", "de"];
+const INPUT_FILE = path.resolve("content/videos-es.json");
+const OUTPUT_FILE = path.resolve("content/videos.json");
+const TARGET_LANGUAGE = "English";
 
-async function callOpenAI(esTranslation) {
-  const prompt = `
-Eres un traductor profesional de recetas de cocina.
-Traduce desde español a inglés (en), hindi (hi) y alemán (de).
+/**
+ * Recursively translates any string in arrays/objects.
+ * Keeps keys unchanged and only translates string values.
+ */
+async function translateDeep(value, language = TARGET_LANGUAGE) {
+  if (value == null) return value;
 
-Reglas:
-- Devuelve JSON válido solamente.
-- Mantén el sentido culinario natural.
-- No inventes ingredientes.
-- Conserva medidas tal como vienen.
-- Traduce title, description, category, ingredients y steps.
-- ingredients y steps deben seguir siendo arrays de strings.
-- Hindi debe estar en escritura devanagari natural.
-- Alemán debe sonar natural para una web de recetas.
-- Inglés debe sonar natural para una web de recetas.
-
-Devuelve exactamente este formato:
-{
-  "en": {
-    "title": "",
-    "description": "",
-    "category": "",
-    "ingredients": [],
-    "steps": []
-  },
-  "hi": {
-    "title": "",
-    "description": "",
-    "category": "",
-    "ingredients": [],
-    "steps": []
-  },
-  "de": {
-    "title": "",
-    "description": "",
-    "category": "",
-    "ingredients": [],
-    "steps": []
+  if (typeof value === "string") {
+    const text = value.trim();
+    if (!text) return value;
+    return translateText(text, language);
   }
+
+  if (Array.isArray(value)) {
+    const results = [];
+    for (const item of value) {
+      results.push(await translateDeep(item, language));
+    }
+    return results;
+  }
+
+  if (typeof value === "object") {
+    const output = {};
+    for (const [key, val] of Object.entries(value)) {
+      output[key] = await translateDeep(val, language);
+    }
+    return output;
+  }
+
+  return value;
 }
 
-Contenido en español:
-${JSON.stringify(esTranslation, null, 2)}
+/**
+ * Translate a single string.
+ */
+async function translateText(text, language = TARGET_LANGUAGE) {
+  const prompt = `
+Translate the following text from Spanish to ${language}.
+
+Rules:
+- Return only the translated text.
+- Do not add quotes.
+- Do not explain anything.
+- Preserve meaning and tone.
+- Localize cooking measurements, units, and formatting so they sound natural in the target language.
+
+Text:
+${text}
 `;
 
-  const response = await fetch("https://api.openai.com/v1/responses", {
-    method: "POST",
-    headers: {
-      "Authorization": `Bearer ${OPENAI_API_KEY}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      model: "gpt-5.4-mini",
-      store: false,
-      input: prompt
-    })
+  const response = await client.responses.create({
+    model: "gpt-4.1-mini",
+    input: prompt,
   });
 
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(`OpenAI API error ${response.status}: ${text}`);
-  }
-
-  const data = await response.json();
-  const outputText = data.output_text || "";
-
-  try {
-    return JSON.parse(outputText);
-  } catch (err) {
-    throw new Error("No se pudo parsear el JSON devuelto por la API. Respuesta: " + outputText);
-  }
+  return (response.output_text || text).trim();
 }
 
-async function run() {
-  const sourceRaw = await fs.readFile(SOURCE_FILE, "utf8");
-  const source = JSON.parse(sourceRaw);
+async function main() {
+  const raw = await fs.readFile(INPUT_FILE, "utf8");
+  const sourceData = JSON.parse(raw);
 
-  for (const video of source.videos) {
-    if (!video.translations) video.translations = {};
-    if (!video.translations.es) {
-      throw new Error(`El video ${video.id} no tiene translations.es`);
-    }
+  const translated = await translateDeep(sourceData, TARGET_LANGUAGE);
 
-    const missing = TARGET_LANGS.filter(lang => !video.translations[lang]);
-    if (missing.length === 0) continue;
+  await fs.writeFile(OUTPUT_FILE, JSON.stringify(translated, null, 2) + "\n", "utf8");
 
-    const translated = await callOpenAI(video.translations.es);
-
-    for (const lang of TARGET_LANGS) {
-      if (translated[lang]) {
-        video.translations[lang] = translated[lang];
-      }
-    }
-  }
-
-  await fs.writeFile(TARGET_FILE, JSON.stringify(source, null, 2), "utf8");
-  console.log(`Archivo generado: ${TARGET_FILE}`);
+  console.log(`Translated file written to ${OUTPUT_FILE}`);
 }
 
-run().catch(err => {
-  console.error(err);
+main().catch((error) => {
+  console.error(error);
   process.exit(1);
 });
