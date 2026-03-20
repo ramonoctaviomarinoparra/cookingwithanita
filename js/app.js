@@ -1,6 +1,7 @@
 const supportedLangs = ["es", "en", "hi", "de", "fr", "pt"];
 let currentLang = "es";
 let siteData = null;
+let selectedVideoId = null;
 
 const ui = {
   es: {
@@ -14,10 +15,10 @@ const ui = {
     ingredients: "Ingredientes",
     steps: "Pasos",
     adLabel: "Publicidad",
-    sideAdText: "Espacio publicitario lateral",
-    bottomAdText: "Espacio publicitario inferior",
     libraryTitle: "Biblioteca",
-    librarySubtitle: "Cada tarjeta carga el video y su receta."
+    librarySubtitle: "Cada tarjeta carga el video y su receta.",
+    loading: "Cargando videos...",
+    error: "No se pudieron cargar los videos."
   },
   en: {
     heroEyebrow: "Cooking with Anita",
@@ -30,10 +31,10 @@ const ui = {
     ingredients: "Ingredients",
     steps: "Steps",
     adLabel: "Advertisement",
-    sideAdText: "Side ad space",
-    bottomAdText: "Bottom ad space",
     libraryTitle: "Library",
-    librarySubtitle: "Each card loads the video and its recipe."
+    librarySubtitle: "Each card loads the video and its recipe.",
+    loading: "Loading videos...",
+    error: "Videos could not be loaded."
   },
   hi: {
     heroEyebrow: "Cooking with Anita",
@@ -46,10 +47,10 @@ const ui = {
     ingredients: "सामग्री",
     steps: "स्टेप्स",
     adLabel: "विज्ञापन",
-    sideAdText: "साइड विज्ञापन स्थान",
-    bottomAdText: "नीचे विज्ञापन स्थान",
     libraryTitle: "लाइब्रेरी",
-    librarySubtitle: "हर कार्ड वीडियो और उसकी रेसिपी लोड करता है।"
+    librarySubtitle: "हर कार्ड वीडियो और उसकी रेसिपी लोड करता है।",
+    loading: "वीडियो लोड हो रहे हैं...",
+    error: "वीडियो लोड नहीं हो सके।"
   },
   de: {
     heroEyebrow: "Cooking with Anita",
@@ -62,14 +63,14 @@ const ui = {
     ingredients: "Zutaten",
     steps: "Schritte",
     adLabel: "Werbung",
-    sideAdText: "Seitlicher Werbeplatz",
-    bottomAdText: "Unterer Werbeplatz",
     libraryTitle: "Bibliothek",
-    librarySubtitle: "Jede Karte lädt das Video und das Rezept."
+    librarySubtitle: "Jede Karte lädt das Video und das Rezept.",
+    loading: "Videos werden geladen...",
+    error: "Die Videos konnten nicht geladen werden."
   },
   fr: {
     heroEyebrow: "Cooking with Anita",
-    heroTitle: "Des vidéos de cuisine relaxantes con una recette dans chaque vidéo",
+    heroTitle: "Des vidéos de cuisine relaxantes avec une recette dans chaque vidéo",
     heroBody: "La langue est détectée automatiquement et vous pouvez la changer à tout moment.",
     featuredLabel: "Vidéo mise en avant",
     published: "Publié",
@@ -78,10 +79,10 @@ const ui = {
     ingredients: "Ingrédients",
     steps: "Étapes",
     adLabel: "Publicité",
-    sideAdText: "Espace publicitaire latéral",
-    bottomAdText: "Espace publicitaire inférieur",
     libraryTitle: "Bibliothèque",
-    librarySubtitle: "Chaque carte charge la vidéo et sa recette."
+    librarySubtitle: "Chaque carte charge la vidéo et sa recette.",
+    loading: "Chargement des vidéos...",
+    error: "Les vidéos n'ont pas pu être chargées."
   },
   pt: {
     heroEyebrow: "Cooking with Anita",
@@ -94,10 +95,10 @@ const ui = {
     ingredients: "Ingredientes",
     steps: "Passos",
     adLabel: "Publicidade",
-    sideAdText: "Espaço publicitário lateral",
-    bottomAdText: "Espaço publicitário inferior",
     libraryTitle: "Biblioteca",
-    librarySubtitle: "Cada cartão carrega o vídeo e sua receita."
+    librarySubtitle: "Cada cartão carrega o vídeo e sua receita.",
+    loading: "Carregando vídeos...",
+    error: "Não foi possível carregar os vídeos."
   }
 };
 
@@ -124,8 +125,8 @@ function setLang(lang) {
 }
 
 function getText(video, lang) {
-  if (video.translations && video.translations[lang]) return video.translations[lang];
-  if (video.translations && video.translations.es) return video.translations.es;
+  if (video?.translations?.[lang]) return video.translations[lang];
+  if (video?.translations?.es) return video.translations.es;
 
   return {
     title: "",
@@ -155,6 +156,13 @@ function formatDate(dateString) {
   } catch {
     return dateString;
   }
+}
+
+function getSelectedVideo() {
+  if (!siteData?.videos?.length) return null;
+
+  const found = siteData.videos.find(video => video.id === selectedVideoId);
+  return found || siteData.videos[0];
 }
 
 function renderHero() {
@@ -197,11 +205,11 @@ function renderRecipe(video) {
     <div class="recipe-grid">
       <div class="subcard">
         <h3>${t.ingredients}</h3>
-        <ul>${tr.ingredients.map(item => `<li>${item}</li>`).join("")}</ul>
+        <ul>${(tr.ingredients || []).map(item => `<li>${item}</li>`).join("")}</ul>
       </div>
       <div class="subcard">
         <h3>${t.steps}</h3>
-        <ol>${tr.steps.map(item => `<li>${item}</li>`).join("")}</ol>
+        <ol>${(tr.steps || []).map(item => `<li>${item}</li>`).join("")}</ol>
       </div>
     </div>
   `;
@@ -209,26 +217,21 @@ function renderRecipe(video) {
 
 function renderLibrary(videos) {
   const t = ui[currentLang];
+  const library = document.getElementById("library");
 
   document.getElementById("library-title").textContent = t.libraryTitle;
   document.getElementById("library-subtitle").textContent = t.librarySubtitle;
-
   document.getElementById("side-ad-left-label").textContent = t.adLabel;
   document.getElementById("side-ad-right-label").textContent = t.adLabel;
   document.getElementById("bottom-ad-label").textContent = t.adLabel;
 
-  document.getElementById("side-ad-left").textContent = t.sideAdText;
-  document.getElementById("side-ad-right").textContent = t.sideAdText;
-  document.getElementById("bottom-ad").textContent = t.bottomAdText;
-
-  const library = document.getElementById("library");
-
   library.innerHTML = videos.map(video => {
     const tr = getText(video, currentLang);
     const thumb = `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`;
+    const isActive = video.id === selectedVideoId;
 
     return `
-      <article class="video-card" data-id="${video.id}">
+      <article class="video-card ${isActive ? "active" : ""}" data-id="${video.id}">
         <div class="thumb" style="background-image:url('${thumb}')"></div>
         <div class="video-card-body">
           <h3 class="video-card-title">${tr.title}</h3>
@@ -240,10 +243,13 @@ function renderLibrary(videos) {
 
   document.querySelectorAll(".video-card").forEach(card => {
     card.addEventListener("click", () => {
-      const selected = siteData.videos.find(v => v.id === card.dataset.id);
+      selectedVideoId = card.dataset.id;
+      const selected = getSelectedVideo();
       if (!selected) return;
+
       renderFeatured(selected);
       renderRecipe(selected);
+      renderLibrary(siteData.videos);
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   });
@@ -253,10 +259,38 @@ function renderLibrary(videos) {
   });
 }
 
-function render() {
-  if (!siteData || !siteData.videos || !siteData.videos.length) return;
+function renderError() {
+  const t = ui[currentLang];
 
-  const selected = siteData.videos[0];
+  document.getElementById("hero").innerHTML = `
+    <div class="hero-inner">
+      <div class="eyebrow">${t.heroEyebrow}</div>
+      <h1>${t.error}</h1>
+      <p>${t.loading}</p>
+    </div>
+  `;
+
+  document.getElementById("featured").innerHTML = "";
+  document.getElementById("recipe").innerHTML = "";
+  document.getElementById("library").innerHTML = "";
+}
+
+function render() {
+  if (!siteData?.videos?.length) {
+    renderError();
+    return;
+  }
+
+  if (!selectedVideoId) {
+    selectedVideoId = siteData.videos[0].id;
+  }
+
+  const selected = getSelectedVideo();
+  if (!selected) {
+    renderError();
+    return;
+  }
+
   renderHero();
   renderFeatured(selected);
   renderRecipe(selected);
@@ -272,9 +306,24 @@ async function init() {
     btn.addEventListener("click", () => setLang(btn.dataset.lang));
   });
 
-  const response = await fetch("content/videos.json");
-  siteData = await response.json();
-  render();
+  try {
+    const response = await fetch("content/videos.json", { cache: "no-store" });
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+    siteData = await response.json();
+
+    if (!siteData?.videos || !Array.isArray(siteData.videos)) {
+      throw new Error("Invalid videos.json format");
+    }
+
+    render();
+  } catch (error) {
+    console.error("Error loading content/videos.json:", error);
+    renderError();
+  }
 }
 
 init();
