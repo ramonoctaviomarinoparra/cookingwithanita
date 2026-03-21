@@ -26,26 +26,26 @@
           "category": "Lunch",
           "ingredients": [
             "eggs, cheese, parsley",
-            "cheese, pre-cooked arepas",
+            "cheese, precooked arepas",
             "vegetables, meat",
-            "lulo"
+            "lulo fruit"
           ],
           "steps": [
-            "We will soon provide the steps"
+            "We will soon add the steps"
           ]
         },
         "hi": {
-          "title": "हमारी पहली वीडियो",
-          "description": "पूरा नाश्ता और दोपहर का खाना",
-          "category": "दोपहर का खाना",
+          "title": "हमारा पहला वीडियो",
+          "description": "पूरा नाश्ता और दोपहर का भोजन",
+          "category": "दोपहर का भोजन",
           "ingredients": [
             "अंडे, पनीर, अजमोद",
-            "पनीर, तैयार अरेपास",
-            "सब्जियां, मांस",
-            "लुलो"
+            "पनीर, पूर्व पकी हुई अरेपा",
+            "सब्जियाँ, मांस",
+            "लुलो फल"
           ],
           "steps": [
-            "जल्द ही हम स्टेप्स प्रदान करेंगे"
+            "हम जल्द ही कदम जोड़ेंगे"
           ]
         },
         "de": {
@@ -56,24 +56,24 @@
             "Eier, Käse, Petersilie",
             "Käse, vorgegarte Arepas",
             "Gemüse, Fleisch",
-            "Lulo"
+            "Lulo-Frucht"
           ],
           "steps": [
-            "Die Schritte werden wir bald hinzufügen"
+            "Wir werden bald die Schritte hinzufügen"
           ]
         },
         "fr": {
           "title": "Notre Première Vidéo",
-          "description": "Petit déjeuner et déjeuner complets",
+          "description": "Petit-déjeuner et déjeuner complets",
           "category": "Déjeuner",
           "ingredients": [
             "œufs, fromage, persil",
             "fromage, arepas précuites",
             "légumes, viande",
-            "lulo"
+            "fruit de lulo"
           ],
           "steps": [
-            "Nous fournirons bientôt les étapes"
+            "Nous ajouterons bientôt les étapes"
           ]
         },
         "pt": {
@@ -83,11 +83,11 @@
           "ingredients": [
             "ovos, queijo, salsa",
             "queijo, arepas pré-cozidas",
-            "vegetais, carne",
-            "lulo"
+            "legumes, carne",
+            "fruta lulo"
           ],
           "steps": [
-            "Em breve forneceremos os passos"
+            "Em breve adicionaremos os passos"
           ]
         }
       }
@@ -113,11 +113,11 @@
           ]
         },
         "en": {
-          "title": "Rice Meat Patties and Chicken Patties",
-          "description": "Homemade patties filled with rice, meat, and chicken",
+          "title": "Rice pastries with meat and chicken pastries",
+          "description": "Homemade pastry recipe filled with rice, meat, and chicken",
           "category": "Lunch",
           "ingredients": [
-            "pastry shells (or empanada dough)",
+            "pastry tortillas (or empanadas)",
             "meat",
             "chicken",
             "rice"
@@ -127,12 +127,12 @@
           ]
         },
         "hi": {
-          "title": "चावल और मांस के पेस्ट्री और चिकन के पेस्ट्री",
-          "description": "घर के बने पेस्ट्री जिनमें चावल, मांस, और चिकन भरा हो",
-          "category": "दोपहर का भोजन",
+          "title": "चावल के मीट और चिकन पेस्ट्रीज़",
+          "description": "घर में बने पेस्ट्रीज़ की रेसिपी, जिसमें चावल, मीट और चिकन भरा होता है",
+          "category": "दोपहर का खाना",
           "ingredients": [
-            "पेस्ट्री के लायक टॉर्टिला (या एम्पनादा का आटा)",
-            "मांस",
+            "पेस्ट्री के टॉर्टिला (या एंपनाडास)",
+            "मीट",
             "चिकन",
             "चावल"
           ],
@@ -141,25 +141,25 @@
           ]
         },
         "de": {
-          "title": "Reisfleisch-Pastetchen und Hähnchen-Pastetchen",
-          "description": "Hausgemachte Pastetchen gefüllt mit Reis, Fleisch und Hähnchen",
+          "title": "Reisteigpasteten mit Fleisch und Hähnchenpasteten",
+          "description": "Hausgemachtes Pastetchen-Rezept gefüllt mit Reis, Fleisch und Hähnchen",
           "category": "Mittagessen",
           "ingredients": [
-            "Pastetenteig (oder Empanada-Teig)",
+            "Teig-Tortillas (oder Empanadas)",
             "Fleisch",
             "Hähnchen",
             "Reis"
           ],
           "steps": [
-            "Sehen Sie sich das Video an"
+            "Sieh dir das Video an"
           ]
         },
         "fr": {
-          "title": "Petits pâtés de riz à la viande et pâtés de poulet",
-          "description": "Recette de pâtés maison garnis de riz, viande et poulet",
+          "title": "Pâtés de riz à la viande et pâtés au poulet",
+          "description": "Recette maison de pâtés garnis de riz avec viande et poulet",
           "category": "Déjeuner",
           "ingredients": [
-            "pâtes à pâtés (ou pâte à empanadas)",
+            "tortillas pour pâtés (ou empanadas)",
             "viande",
             "poulet",
             "riz"
@@ -170,13 +170,117 @@
         },
         "pt": {
           "title": "Pastéis de arroz com carne e pastéis de frango",
-          "description": "Receita de pastéis caseiros recheados com arroz, carne e frango",
+          "description": "Receita caseira de pastéis recheados com arroz, carne e frango",
           "category": "Almoço",
           "ingredients": [
-            "tortilhas para pastéis (ou massa para empanadas)",
+            "tortillas para pastéis (ou empanadas)",
             "carne",
             "frango",
             "arroz"
+          ],
+          "steps": [
+            "Assista ao vídeo"
+          ]
+        }
+      }
+    },
+    {
+      "id": "anita-003",
+      "youtubeId": "K7gVQRhakG0",
+      "publishedAt": "2026-03-21",
+      "sourceLanguage": "es",
+      "translations": {
+        "es": {
+          "title": "Lengua en salsa",
+          "description": "Lengua",
+          "category": "Lunch",
+          "ingredients": [
+            "Lengua de vaca",
+            "Cebolla Morada",
+            "Tomate",
+            "Pimenton",
+            "arroz",
+            "cebolla larga"
+          ],
+          "steps": [
+            "Mira el video"
+          ]
+        },
+        "en": {
+          "title": "Tongue in Sauce",
+          "description": "Beef tongue",
+          "category": "Lunch",
+          "ingredients": [
+            "Beef tongue",
+            "Red onion",
+            "Tomato",
+            "Bell pepper",
+            "Rice",
+            "Green onion"
+          ],
+          "steps": [
+            "Watch the video"
+          ]
+        },
+        "hi": {
+          "title": "सॉस में जीभ",
+          "description": "गाय की जीभ",
+          "category": "दोपहर का भोजन",
+          "ingredients": [
+            "गाय की जीभ",
+            "लाल प्याज",
+            "टमाटर",
+            "शिमला मिर्च",
+            "चावल",
+            "हरी प्याज"
+          ],
+          "steps": [
+            "वीडियो देखें"
+          ]
+        },
+        "de": {
+          "title": "Zunge in Sauce",
+          "description": "Rinderzunge",
+          "category": "Mittagessen",
+          "ingredients": [
+            "Rinderzunge",
+            "Rote Zwiebel",
+            "Tomate",
+            "Paprika",
+            "Reis",
+            "Lauchzwiebel"
+          ],
+          "steps": [
+            "Sieh dir das Video an"
+          ]
+        },
+        "fr": {
+          "title": "Langue en sauce",
+          "description": "Langue de bœuf",
+          "category": "Déjeuner",
+          "ingredients": [
+            "Langue de bœuf",
+            "Oignon rouge",
+            "Tomate",
+            "Poivron",
+            "Riz",
+            "Ciboule"
+          ],
+          "steps": [
+            "Regardez la vidéo"
+          ]
+        },
+        "pt": {
+          "title": "Língua ao molho",
+          "description": "Língua de boi",
+          "category": "Almoço",
+          "ingredients": [
+            "Língua de boi",
+            "Cebola roxa",
+            "Tomate",
+            "Pimentão",
+            "Arroz",
+            "Cebolinha"
           ],
           "steps": [
             "Assista ao vídeo"
