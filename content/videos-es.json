@@ -41,30 +41,34 @@
       "steps": [
         "Mira el video"
       ]
-    },
-      "id": "anita-003",
-  "youtubeId": "K7gVQRhakG0",
-  "publishedAt": "2026-03-21",
-  "sourceLanguage": "es",
-  "translations": {
-    "es": {
-      "title": "Lengua en salsa",
-      "description": "Lengua",
-      "category": "Lunch",
-      "ingredients": [
-        "Lengua de vaca",
-        "Cebolla Morada",
-        "Tomate",
-        "Pimenton",
-        "arroz",
-        "cebolla larga"
-      ],
-      "steps": [
-        "Mira el video"
-      ]
     }
+
   }
-}
+},
+    {
+      "id": "anita-003",
+      "youtubeId": "K7gVQRhakG0",
+      "publishedAt": "2026-03-21",
+      "sourceLanguage": "es",
+      "translations": {
+        "es": {
+          "title": "Lengua en salsa",
+          "description": "Lengua",
+          "category": "Lunch",
+          "ingredients": [
+            "Lengua de vaca",
+            "Cebolla Morada",
+            "Tomate",
+            "Pimenton",
+            "arroz",
+            "cebolla larga"
+          ],
+          "steps": [
+            "Mira el video"
+          ]
+        }
+      }
+    }
 
   ]
 }
